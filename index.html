@@ -97,6 +97,7 @@
                         <tr>
                             <th scope="col">Points</th>
                             <th scope="col">Checked</th>
+                            <th scope="col">Running Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,48 +106,56 @@
                             <td>
                                 <input type="checkbox" aria-label="Checkbox for following text input" id="team1WinBonus">
                             </td>
+                            <th id="bonusRunning"></th>
                         </tr>
                         <tr>
                             <th scope="row"># of Red 3</th>
                             <td>
                                 <input type="text" class="form-control" id="team1RedThrees" value="0">
                             </td>
+                            <th id="redThreeRunning"></th>
                         </tr>
                         <tr>
                             <th scope="row">Natural Melds</th>
                             <td>
                                 <input type="text" class="form-control" id="team1NaturalMelds" value="0">
                             </td>
+                            <th id="naturalRunning"></th>
                         </tr>
                         <tr>
                             <th scope="row">Bastard Melds</th>
                             <td>
                                 <input type="text" class="form-control" id="team1BastardMelds" value="0">
                             </td>
+                            <th id="bastardRunning"></th>
                         </tr>
                         <tr>
                             <th scope="row"># 5 pt cards</th>
                             <td>
                                 <input type="text" class="form-control" id="team1FivePoints" value="0">
                             </td>
+                            <th id="fiveRunning"></th>
                         </tr>
                         <tr>
                             <th scope="row"># 10 pt cards</th>
                             <td>
                                 <input type="text" class="form-control" id="team1TenPoints" value="0">
                             </td>
+                            <th id="tenRunning"></th>
                         </tr>
                         <tr>
                             <th scope="row"># 20 pt cards</th>
                             <td>
                                 <input type="text" class="form-control" id="team1TwentyPoints" value="0">
                             </td>
+                            <th id="twentyRunning"></th>
                         </tr>
                         <tr>
                             <th scope="row"># 50 pt cards</th>
                             <td>
                                 <input type="text" class="form-control" id="team1FiftyPoints" value="0">
                             </td>
+                            <th id="fiftyRunning"></th>
                         </tr>
                     </tbody>
                 </table>
@@ -176,6 +185,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <!--team 1 score calculation-->
     <script>
+        //this part is done don't touch it
         function team1WinningBonus() {
             var bonus;
             var checkbox = document.getElementById('team1WinBonus');
@@ -187,15 +197,26 @@
             return bonus;
         }
         function team1RedThrees() {
-            var x = document.getElementById('team1RedThrees').value;
-            
-            //if x = 4, the score is 800. if x < 4, the score will be x * 100;
-            
-            if (x = 4) {
-                return 800;
+            var checkbox = document.getElementById('team1WinBonus');
+            var x = document.getElementById('team1RedThrees').value;     
+            //if you have all 4 red threes, the score is 800. if you have fewer than 4, you get 100 points for each one. 
+
+            if (checkbox.checked) {
+                if (x == 4) {
+                    return 800;
+                } else {
+                    return (x * 100);
+                }
             } else {
-                return (x * 100);
+                if (x == 4) {
+                    return -800;
+                } else {
+                    return (x * -100);
+                }
             }
+
+
+            
         }
         function team1NaturalMelds() {
             var x = document.getElementById('team1NaturalMelds').value;
@@ -215,15 +236,16 @@
             var handTotal = fivePoints + tenPoints + twentyPoints + fiftyPoints;
             return handTotal;
         }
-
         function calculateTotal1() {
-            //console.log('winning bonus ' + team1WinningBonus()); /*working*/
-            console.log('the number of red threes is ' + document.getElementById('team1RedThrees').value);
-            console.log('red three score ' + team1RedThrees()); 
-            //console.log('natural melds score ' + team1NaturalMelds()); /*working*/
-            //console.log('bastard melds score ' + team1BastardMelds()); /*working*/
-            //console.log('hand total ' + team1handTotal()); /*working*/
+            var score = team1WinningBonus() + team1RedThrees() + team1NaturalMelds() + team1BastardMelds() - team1handTotal();
+            console.log(score);
         }
+
+        //< !--script to add in running totals-- >
+        
+        
+    </script>
+    
     </script>
 </body>
 </html>
