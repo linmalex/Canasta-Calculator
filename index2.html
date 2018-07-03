@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Canasta Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="css/stylesheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <!--Team member selection row-->
+        <div class="row">
+            <div class="col">
+                <div class="dropdown d-inline">
+                    <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown d-inline" aria-haspopup="true" aria-expanded="false">
+                        Team Member 1
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Aaron</a>
+                        <a class="dropdown-item" href="#">Ammon</a>
+                        <a class="dropdown-item" href="#">Lindsay</a>
+                        <a class="dropdown-item" href="#">Magen</a>
+                        <a class="dropdown-item" href="#">Shay</a>
+                    </div>
+                </div>
+                <div class="dropdown d-inline">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown d-inline" aria-haspopup="true" aria-expanded="false">
+                        Team Member 2 (optional)
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Aaron</a>
+                        <a class="dropdown-item" href="#">Ammon</a>
+                        <a class="dropdown-item" href="#">Lindsay</a>
+                        <a class="dropdown-item" href="#">Magen</a>
+                        <a class="dropdown-item" href="#">Shay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dropdown d-inline">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown d-inline" aria-haspopup="true" aria-expanded="false">
+                        Team Member 1
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Aaron</a>
+                        <a class="dropdown-item" href="#">Ammon</a>
+                        <a class="dropdown-item" href="#">Lindsay</a>
+                        <a class="dropdown-item" href="#">Magen</a>
+                        <a class="dropdown-item" href="#">Shay</a>
+                    </div>
+                </div>
+                <div class="dropdown d-inline">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown d-inline" aria-haspopup="true" aria-expanded="false">
+                        Team Member 2 (optional)
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Aaron</a>
+                        <a class="dropdown-item" href="#">Ammon</a>
+                        <a class="dropdown-item" href="#">Lindsay</a>
+                        <a class="dropdown-item" href="#">Magen</a>
+                        <a class="dropdown-item" href="#">Shay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Score input row-->
+        <div class="row">
+            <div class="col-md">
+                <!--Team 1 score table-->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Points</th>
+                            <th scope="col">Checked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Winning Bonus</th>
+                            <td>
+                                <input type="checkbox" aria-label="Checkbox for following text input" id="team1WinBonus">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># of Red 3</th>
+                            <td>
+                                <input name="redThrees1Box" type="text" class="form-control" id="team1RedThrees" value="2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Natural Melds</th>
+                            <td>
+                                <input type="text" class="form-control" id="team1NaturalMelds">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bastard Melds</th>
+                            <td>
+                                <input type="text" class="form-control" id="team1BastardMelds">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 5 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team1FivePoints">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 10 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team1TenPoints">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 20 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team1TwentyPoints">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 50 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team1FiftyPoints">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md">
+                <!--Team 2 score table-->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Points</th>
+                            <th scope="col">Checked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Winning Bonus</th>
+                            <td>
+                                <input type="checkbox" aria-label="Checkbox for following text input" id="team2WinBonus">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># of Red 3</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2RedThrees">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Natural Melds</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2NaturalMelds">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bastard Melds</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2BastardMelds">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 5 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2FivePoints">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 10 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2TenPoints">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 20 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2TwentyPoints">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 50 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2FiftyPoints">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Submit button row-->
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary d-block mx-auto" onclick="calculateTotal1()" data-toggle="modal" data-target="#exampleModalCenter">
+                    Submit
+                </button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary d-block mx-auto" onclick="calculateTotal2()" data-toggle="modal" data-target="#exampleModalCenter">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!--team 1 score calculation-->
+    <script>
+        var numRedThrees1 = document.getElementById('team1RedThrees').value;
+        console.log(numRedThrees1);
+        
+    </script>
+</body>
+</html>
