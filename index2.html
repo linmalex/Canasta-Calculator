@@ -104,7 +104,7 @@
                         <tr>
                             <th scope="row">Winning Bonus</th>
                             <td>
-                                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" id="team1WinBonus" onclick="toggleFunction()">
+                                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" id="team1WinBonus">
                                     Single toggle
                                 </button>
                             </td>
@@ -188,16 +188,10 @@
     <!--team 1 score calculation-->
     <script>
         //this part is done don't touch it
-        function toggleFunction() {
-            var x = -1
-            x = (x * -1)
-            console.log(x)
-        }
-
         function team1WinningBonus() {
             var bonus;
             var toggleButton = document.getElementById('team1WinBonus');
-            if (toggleButton.active) {
+            if (toggleButton.checked) {
                 bonus = 100 ;
             } else {
                 bonus = 0;
