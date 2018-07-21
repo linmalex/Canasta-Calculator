@@ -234,15 +234,15 @@
         <!--Submit button row-->
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-primary d-block mx-auto" onclick="calculateTotal1()">
+                <button type="button" class="btn btn-primary d-block mx-auto" onclick="calculateTotals()">
                     Submit
                 </button>
             </div>
-            <div class="col">
+            <!--<div class="col">
                 <button type="button" class="btn btn-primary d-block mx-auto" onclick="calculateTotal2()" data-toggle="modal" data-target="#exampleModalCenter">
                     Submit
                 </button>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -250,9 +250,9 @@
     <script src="js/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     
-    <!--team 1 score calculation-->
+    
     <script>
-        //this part is done don't touch it
+        //team 1 score calculations
         function team1WinningBonus() {
             var bonus;
             var checkbox = document.getElementById('team1WinBonus');
@@ -305,16 +305,10 @@
         }
         function calculateTotal1() {
             var score = team1WinningBonus() + team1RedThrees() + team1NaturalMelds() + team1BastardMelds() - team1handTotal();
-            console.log(score);
+            return(score);
         }
-    
-        //< !--script to add in running totals-- >
 
-
-    </script>
-    
-    <!--team 2 score calculation-->
-    <script>
+        //team 2 score calculations
         function team2WinningBonus() {
             var bonus;
             var checkbox = document.getElementById('team2WinBonus');
@@ -367,9 +361,22 @@
         }
         function calculateTotal2() {
             var score = team2WinningBonus() + team2RedThrees() + team2NaturalMelds() + team2BastardMelds() - team2handTotal();
-            console.log(score);
+            return score;
         }
+    
+        //submit button action
+        function calculateTotals() {
+            var team1score = calculateTotal1();
+            var team2score = calculateTotal2();
+
+            console.log("Team 1 score is " + team1score + ". Team 2 score is " + team2score + ".");
+
         
+        }
+
+
     </script>
+    
+    
 </body>
 </html>
