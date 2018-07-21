@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
- 
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -104,9 +104,7 @@
                         <tr>
                             <th scope="row">Winning Bonus</th>
                             <td>
-                                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" id="team1WinBonus" onclick="toggleFunction()">
-                                    Single toggle
-                                </button>
+                                <input type="checkbox" aria-label="Checkbox for following text input" id="team1WinBonus">
                             </td>
                             <th id="bonusRunning"></th>
                         </tr>
@@ -163,8 +161,74 @@
                 </table>
             </div>
             <div class="col-md">
-                <!--Team 2 score table-->
-                
+                <!--Team 1 score table-->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Points</th>
+                            <th scope="col">Checked</th>
+                            <th scope="col">Running Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Winning Bonus</th>
+                            <td>
+                                <input type="checkbox" aria-label="Checkbox for following text input" id="team2WinBonus">
+                            </td>
+                            <th id="bonusRunning"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row"># of Red 3</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2RedThrees" value="0">
+                            </td>
+                            <th id="redThreeRunning"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Natural Melds</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2NaturalMelds" value="0">
+                            </td>
+                            <th id="naturalRunning"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bastard Melds</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2BastardMelds" value="0">
+                            </td>
+                            <th id="bastardRunning"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 5 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2FivePoints" value="0">
+                            </td>
+                            <th id="fiveRunning"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 10 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2TenPoints" value="0">
+                            </td>
+                            <th id="tenRunning"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 20 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2TwentyPoints" value="0">
+                            </td>
+                            <th id="twentyRunning"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row"># 50 pt cards</th>
+                            <td>
+                                <input type="text" class="form-control" id="team2FiftyPoints" value="0">
+                            </td>
+                            <th id="fiftyRunning"></th>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <!--Submit button row-->
@@ -185,18 +249,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="js/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
     <!--team 1 score calculation-->
     <script>
         //this part is done don't touch it
-        function toggleFunction() {
-            var x = -1
-            x = x * -1  
-        }
-
         function team1WinningBonus() {
             var bonus;
-            var toggleButton = document.getElementById('team1WinBonus');
-            if (toggleButton.active) {
+            var checkbox = document.getElementById('team1WinBonus');
+            if (checkbox.checked) {
                 bonus = 100 ;
             } else {
                 bonus = 0;
@@ -205,8 +265,8 @@
         }
         function team1RedThrees() {
             var checkbox = document.getElementById('team1WinBonus');
-            var x = document.getElementById('team1RedThrees').value;     
-            //if you have all 4 red threes, the score is 800. if you have fewer than 4, you get 100 points for each one. 
+            var x = document.getElementById('team1RedThrees').value;
+            //if you have all 4 red threes, the score is 800. if you have fewer than 4, you get 100 points for each one.
 
             if (checkbox.checked) {
                 if (x == 4) {
@@ -223,7 +283,7 @@
             }
 
 
-            
+
         }
         function team1NaturalMelds() {
             var x = document.getElementById('team1NaturalMelds').value;
@@ -247,12 +307,69 @@
             var score = team1WinningBonus() + team1RedThrees() + team1NaturalMelds() + team1BastardMelds() - team1handTotal();
             console.log(score);
         }
-
+    
         //< !--script to add in running totals-- >
-        //I'm making a change so it sees a change
-        
+
+
     </script>
     
+    <!--team 2 score calculation-->
+    <script>
+        function team2WinningBonus() {
+            var bonus;
+            var checkbox = document.getElementById('team2WinBonus');
+            if (checkbox.checked) {
+                bonus = 100;
+            } else {
+                bonus = 0;
+            }
+            return bonus;
+        }
+        function team2RedThrees() {
+            var checkbox = document.getElementById('team2WinBonus');
+            var x = document.getElementById('team2RedThrees').value;
+            //if you have all 4 red threes, the score is 800. if you have fewer than 4, you get 100 points for each one.
+
+            if (checkbox.checked) {
+                if (x == 4) {
+                    return 800;
+                } else {
+                    return (x * 100);
+                }
+            } else {
+                if (x == 4) {
+                    return -800;
+                } else {
+                    return (x * -100);
+                }
+            }
+
+
+
+        }
+        function team2NaturalMelds() {
+            var x = document.getElementById('team2NaturalMelds').value;
+            var xScore = x * 500;
+            return xScore
+        }
+        function team2BastardMelds() {
+            var x = document.getElementById('team2BastardMelds').value;
+            var xScore = x * 300;
+            return xScore
+        }
+        function team2handTotal() {
+            var fivePoints = document.getElementById('team2FivePoints').value * 5;
+            var tenPoints = document.getElementById('team2TenPoints').value * 10;
+            var twentyPoints = document.getElementById('team2TwentyPoints').value * 20;
+            var fiftyPoints = document.getElementById('team2FiftyPoints').value * 50;
+            var handTotal = fivePoints + tenPoints + twentyPoints + fiftyPoints;
+            return handTotal;
+        }
+        function calculateTotal2() {
+            var score = team2WinningBonus() + team2RedThrees() + team2NaturalMelds() + team2BastardMelds() - team2handTotal();
+            console.log(score);
+        }
+        
     </script>
 </body>
 </html>
