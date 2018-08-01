@@ -92,7 +92,7 @@
         <div class="row">
             <div class="col-md">
                 <!--Team 1 score table-->
-                <table class="table">
+                <table class="table" id="table1">
                     <thead>
                         <tr>
                             <th scope="col">Points</th>
@@ -111,7 +111,7 @@
                         <tr>
                             <th scope="row"># of Red 3</th>
                             <td>
-                                <input type="text" class="form-control" id="team1RedThrees" value="0">
+                                <input type="text" class="form-control clear-on-submit" id="team1RedThrees" value="0">
                             </td>
                             <th id="redThreeRunning"></th>
                         </tr>
@@ -161,8 +161,8 @@
                 </table>
             </div>
             <div class="col-md">
-                <!--Team 1 score table-->
-                <table class="table">
+                <!--Team 2 score table-->
+                <table class="table" id="table2">
                     <thead>
                         <tr>
                             <th scope="col">Points</th>
@@ -238,11 +238,10 @@
                     Submit
                 </button>
             </div>
-            <!--<div class="col">
-                <button type="button" class="btn btn-primary d-block mx-auto" onclick="calculateTotal2()" data-toggle="modal" data-target="#exampleModalCenter">
-                    Submit
-                </button>
-            </div>-->
+        </div>
+        <!-- Score tally row -->
+        <div class="col">
+            <p>test language</p>
         </div>
     </div>
 
@@ -369,9 +368,8 @@
             var team1score = calculateTotal1();
             var team2score = calculateTotal2();
 
-            console.log("Team 1 score is " + team1score + ". Team 2 score is " + team2score + ".");
-
-        
+            console.log("Team 1 score is " + team1score + ". Team 2 score is " + team2score + ". This is a test");
+            document.getElementsByClassName('clear-on-submit').value = '';
         }
 
 
